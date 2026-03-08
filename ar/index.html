@@ -1,0 +1,818 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تحقق من أهليتك | كريدي إنسايدر المغرب</title>
+    <meta name="description"
+        content="احصل على قرضك البنكي حتى بعد الرفض. تحليل مجاني، بدون مصاريف قبل فتح القرض. تحقق من أهليتك في 60 ثانية.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Arabic:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+    <style>
+        *,
+        *::before,
+        *::after {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        html {
+            scroll-behavior: smooth;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale
+        }
+
+        body {
+            font-family: 'Noto Sans Arabic', sans-serif;
+            background: #0a0a0f;
+            color: #fff;
+            line-height: 1.7;
+            min-height: 100vh;
+            direction: rtl
+        }
+
+        .page-wrapper {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 0 16px
+        }
+
+        /* Force LTR on all numbers so they don't reverse in RTL */
+        .num {
+            direction: ltr;
+            display: inline-block;
+            unicode-bidi: bidi-override
+        }
+
+        /* BLOCK 1 — HEADLINE */
+        .headline-block {
+            padding-top: 64px;
+            text-align: center
+        }
+
+        .pre-headline {
+            font-size: 13px;
+            font-weight: 400;
+            color: #9ca3af;
+            margin-bottom: 20px
+        }
+
+        .main-headline {
+            font-size: clamp(24px, 4.5vw, 36px);
+            font-weight: 800;
+            line-height: 1.35;
+            margin-bottom: 24px
+        }
+
+        .main-headline .line1 {
+            color: #fff;
+            display: block
+        }
+
+        .main-headline .line2 {
+            color: #c9a84c;
+            display: block
+        }
+
+        .sub-headline {
+            font-size: 14px;
+            font-weight: 300;
+            color: #9ca3af;
+            line-height: 1.9;
+            max-width: 560px;
+            margin: 0 auto
+        }
+
+        /* STATS STRIP */
+        .stats-strip {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin-top: 32px;
+            padding: 20px 0;
+            border-top: 1px solid #1e1e2e;
+            border-bottom: 1px solid #1e1e2e
+        }
+
+        .stat-item {
+            text-align: center
+        }
+
+        .stat-number {
+            font-size: 28px;
+            font-weight: 800;
+            color: #c9a84c;
+            display: block;
+            direction: ltr;
+            unicode-bidi: bidi-override
+        }
+
+        .stat-label {
+            font-size: 12px;
+            color: #9ca3af;
+            font-weight: 400
+        }
+
+        /* BLOCK 2 — TRUST BULLETS */
+        .trust-bullets {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px 24px;
+            justify-content: center;
+            margin-top: 32px
+        }
+
+        .trust-bullet {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 14px;
+            font-weight: 400;
+            color: #d1d5db;
+            white-space: nowrap
+        }
+
+        .trust-bullet .check {
+            font-size: 16px;
+            flex-shrink: 0
+        }
+
+        /* BLOCK 3 — FORM */
+        .form-section {
+            margin-top: 64px
+        }
+
+        .form-card {
+            background: #12121a;
+            border: 1px solid #1e1e2e;
+            border-radius: 16px;
+            padding: 40px;
+            position: relative;
+            overflow: hidden
+        }
+
+        .form-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 3px;
+            background: linear-gradient(90deg, #c9a84c, #e8d48b, #c9a84c)
+        }
+
+        .form-title {
+            text-align: center;
+            font-size: 20px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 8px
+        }
+
+        .form-subtitle {
+            text-align: center;
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 8px
+        }
+
+        /* Urgency badge */
+        .urgency-badge {
+            text-align: center;
+            margin-bottom: 28px
+        }
+
+        .urgency-badge span {
+            display: inline-block;
+            background: rgba(201, 168, 76, .1);
+            border: 1px solid rgba(201, 168, 76, .25);
+            color: #c9a84c;
+            font-size: 12px;
+            font-weight: 600;
+            padding: 6px 16px;
+            border-radius: 20px
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px;
+            margin-bottom: 20px
+        }
+
+        .form-row.full {
+            grid-template-columns: 1fr
+        }
+
+        .form-group {
+            display: flex;
+            flex-direction: column
+        }
+
+        .form-group label {
+            font-size: 14px;
+            font-weight: 500;
+            color: #fff;
+            margin-bottom: 6px;
+            text-align: right
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            background: #0a0a0f;
+            color: #fff;
+            border: 1px solid #1e1e2e;
+            border-radius: 8px;
+            padding: 12px 16px;
+            font-size: 15px;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            outline: none;
+            transition: border-color .2s, box-shadow .2s;
+            width: 100%
+        }
+
+        /* Numbers in inputs should be LTR */
+        .form-group input[type="number"],
+        .form-group input[type="tel"] {
+            direction: ltr;
+            text-align: right
+        }
+
+        .form-group input::placeholder,
+        .form-group textarea::placeholder {
+            color: #4b5563
+        }
+
+        .form-group input:focus,
+        .form-group select:focus,
+        .form-group textarea:focus {
+            border-color: #c9a84c;
+            box-shadow: 0 0 0 3px rgba(201, 168, 76, .15)
+        }
+
+        .form-group input.error,
+        .form-group select.error {
+            border-color: #ef4444
+        }
+
+        .form-group select {
+            appearance: none;
+            -webkit-appearance: none;
+            cursor: pointer;
+            padding-left: 40px;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' viewBox='0 0 12 8'%3E%3Cpath fill='%23c9a84c' d='M1.41 0L6 4.58 10.59 0 12 1.41l-6 6-6-6z'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: left 16px center;
+            background-color: #0a0a0f
+        }
+
+        .form-group select option {
+            background: #12121a;
+            color: #fff
+        }
+
+        .helper-text {
+            font-size: 12px;
+            color: #9ca3af;
+            margin-top: 4px;
+            text-align: right
+        }
+
+        .error-text {
+            font-size: 12px;
+            color: #ef4444;
+            margin-top: 4px;
+            display: none;
+            text-align: right
+        }
+
+        .error-text.visible {
+            display: block
+        }
+
+        .submit-btn {
+            display: block;
+            width: 100%;
+            padding: 18px 24px;
+            margin-top: 28px;
+            background: linear-gradient(135deg, #c9a84c, #e8d48b);
+            color: #0a0a0f;
+            font-size: 17px;
+            font-weight: 700;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: all .2s;
+            position: relative
+        }
+
+        .submit-btn:hover {
+            transform: translateY(-1px);
+            box-shadow: 0 8px 24px rgba(201, 168, 76, .25)
+        }
+
+        .submit-btn:active {
+            transform: translateY(0)
+        }
+
+        .submit-btn.loading {
+            opacity: .7;
+            pointer-events: none
+        }
+
+        .form-footer {
+            text-align: center;
+            margin-top: 16px
+        }
+
+        .form-footer p {
+            font-size: 12px;
+            color: #9ca3af;
+            line-height: 1.8
+        }
+
+        .form-footer p.smaller {
+            font-size: 11px
+        }
+
+        /* SUCCESS */
+        .success-block {
+            display: none;
+            text-align: center;
+            background: #12121a;
+            border: 1px solid #1e1e2e;
+            border-radius: 16px;
+            padding: 48px 40px
+        }
+
+        .success-block.visible {
+            display: block
+        }
+
+        .success-icon {
+            font-size: 48px;
+            margin-bottom: 16px
+        }
+
+        .success-title {
+            font-size: 24px;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 20px
+        }
+
+        .success-text {
+            font-size: 15px;
+            color: #9ca3af;
+            line-height: 1.9;
+            margin-bottom: 8px
+        }
+
+        .success-text strong {
+            color: #fff
+        }
+
+        .whatsapp-btn {
+            display: block;
+            width: 100%;
+            padding: 16px 24px;
+            margin-top: 28px;
+            background: #25D366;
+            color: #fff;
+            font-size: 16px;
+            font-weight: 700;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+            text-align: center;
+            transition: background .2s
+        }
+
+        .whatsapp-btn:hover {
+            background: #1fb855
+        }
+
+        /* SOCIAL PROOF */
+        .social-proof {
+            margin-top: 64px;
+            padding-bottom: 80px
+        }
+
+        .social-proof-label {
+            text-align: center;
+            font-size: 13px;
+            font-weight: 600;
+            color: #9ca3af;
+            margin-bottom: 24px
+        }
+
+        .proof-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 16px
+        }
+
+        .proof-card {
+            background: #12121a;
+            border: 1px solid #1e1e2e;
+            border-radius: 12px;
+            padding: 24px;
+            display: flex;
+            flex-direction: column;
+            text-align: right
+        }
+
+        .proof-name {
+            font-size: 15px;
+            font-weight: 600;
+            color: #fff
+        }
+
+        .proof-city {
+            font-size: 13px;
+            color: #9ca3af;
+            margin-bottom: 12px
+        }
+
+        .proof-type {
+            font-size: 11px;
+            color: #9ca3af;
+            letter-spacing: .5px;
+            margin-bottom: 4px
+        }
+
+        .proof-amount {
+            font-size: 22px;
+            font-weight: 700;
+            color: #c9a84c;
+            margin-bottom: 16px;
+            direction: ltr;
+            unicode-bidi: bidi-override;
+            text-align: right
+        }
+
+        .proof-quote {
+            font-size: 13px;
+            color: #9ca3af;
+            font-style: normal;
+            line-height: 1.7;
+            border-right: 2px solid #c9a84c;
+            padding-right: 12px;
+            margin-top: auto
+        }
+
+        /* STICKY MOBILE CTA */
+        .sticky-cta {
+            display: none;
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: rgba(10, 10, 15, .95);
+            backdrop-filter: blur(12px);
+            border-top: 1px solid #1e1e2e;
+            padding: 12px 16px;
+            z-index: 100
+        }
+
+        .sticky-cta button {
+            width: 100%;
+            padding: 14px;
+            background: linear-gradient(135deg, #c9a84c, #e8d48b);
+            color: #0a0a0f;
+            font-size: 15px;
+            font-weight: 700;
+            font-family: 'Noto Sans Arabic', sans-serif;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer
+        }
+
+        /* RESPONSIVE */
+        @media(max-width:768px) {
+            .headline-block {
+                padding-top: 40px
+            }
+
+            .stats-strip {
+                gap: 24px
+            }
+
+            .stat-number {
+                font-size: 24px
+            }
+
+            .trust-bullets {
+                display: grid;
+                grid-template-columns: 1fr 1fr;
+                gap: 12px;
+                margin-top: 24px
+            }
+
+            .trust-bullet {
+                white-space: normal
+            }
+
+            .form-section {
+                margin-top: 40px
+            }
+
+            .form-card {
+                padding: 24px
+            }
+
+            .form-row {
+                grid-template-columns: 1fr;
+                gap: 16px;
+                margin-bottom: 16px
+            }
+
+            .social-proof {
+                margin-top: 40px;
+                padding-bottom: 100px
+            }
+
+            .proof-grid {
+                grid-template-columns: 1fr;
+                gap: 12px
+            }
+
+            .success-block {
+                padding: 32px 24px
+            }
+
+            .sticky-cta {
+                display: block
+            }
+        }
+
+        @media(max-width:480px) {
+            .trust-bullets {
+                grid-template-columns: 1fr
+            }
+
+            .main-headline {
+                font-size: 22px
+            }
+
+            .stats-strip {
+                gap: 16px;
+                flex-wrap: wrap
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <div class="page-wrapper">
+
+        <!-- BLOCK 1 — HEADLINE -->
+        <section class="headline-block">
+            <p class="pre-headline">للموظفين، الحرفيين، أصحاب المهن الحرة والمغاربة المقيمين بالخارج</p>
+            <h1 class="main-headline">
+                <span class="line1">احصل على قرضك البنكي.</span>
+                <span class="line2">حتى لو تم رفضك — أو لم تجرؤ على الطلب من قبل.</span>
+            </h1>
+            <p class="sub-headline">نحلل وضعيتك مجانًا ونجهّز ملفك وفق المعايير الحقيقية لبنكك. لا تدفع إلا إذا تم فتح
+                قرضك.</p>
+
+            <!-- STATS STRIP -->
+            <div class="stats-strip">
+                <div class="stat-item">
+                    <span class="stat-number">+200</span>
+                    <span class="stat-label">ملف تم معالجته</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">93%</span>
+                    <span class="stat-label">نسبة القبول</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number">0 Dhs</span>
+                    <span class="stat-label">بلا مصاريف مسبقة</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- BLOCK 2 — TRUST BULLETS -->
+        <div class="trust-bullets">
+            <div class="trust-bullet"><span class="check">✅</span> بدون أي مصاريف قبل فتح القرض</div>
+            <div class="trust-bullet"><span class="check">✅</span> تحليل ملفك مجاني <span class="num">100%</span></div>
+            <div class="trust-bullet"><span class="check">✅</span> حتى لو سبق أن تم رفضك</div>
+            <div class="trust-bullet"><span class="check">✅</span> حتى لو ما عارف من فين تبدا</div>
+        </div>
+
+        <!-- BLOCK 3 — FORM -->
+        <section class="form-section" id="formulaire">
+            <div class="form-card" id="formCard">
+                <h2 class="form-title">تحقق من أهليتك — <span class="num">60</span> ثانية</h2>
+                <p class="form-subtitle">كندرسو كل ملف شخصيًا قبل ما نقبلو نخدمو عليه.</p>
+                <div class="urgency-badge"><span>🔥 أماكن محدودة — كنقبلو غير <span class="num">15</span> ملف
+                        فالشهر</span></div>
+
+                <form id="leadForm" novalidate>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="prenom">الاسم الشخصي *</label>
+                            <input type="text" id="prenom" name="prenom" placeholder="مثال : محمد" required>
+                            <span class="error-text" id="prenomError">هاد الحقل ضروري</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="nom">الاسم العائلي *</label>
+                            <input type="text" id="nom" name="nom" placeholder="مثال : العلمي" required>
+                            <span class="error-text" id="nomError">هاد الحقل ضروري</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="telephone">رقم الواتساب *</label>
+                            <input type="tel" id="telephone" name="telephone" placeholder="06 12 34 56 78" required>
+                            <p class="helper-text">غادي نتواصلو معاك غير على هاد الرقم</p>
+                            <span class="error-text" id="telephoneError">هاد الحقل ضروري</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="age">العمر *</label>
+                            <input type="number" id="age" name="age" placeholder="34" min="18" max="75" required>
+                            <span class="error-text" id="ageError">هاد الحقل ضروري</span>
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="situation">الوضعية المهنية *</label>
+                            <select id="situation" name="situation" required>
+                                <option value="" disabled selected>اختار الوضعية ديالك...</option>
+                                <option value="أجير قطاع خاص">أجير قطاع خاص</option>
+                                <option value="موظف">موظف</option>
+                                <option value="مسير شركة">مسير شركة</option>
+                                <option value="متقاعد">متقاعد</option>
+                                <option value="مقاول ذاتي / TPE / PME">مقاول ذاتي / TPE / PME</option>
+                                <option value="آخر">آخر</option>
+                            </select>
+                            <span class="error-text" id="situationError">هاد الحقل ضروري</span>
+                        </div>
+                        <div class="form-group">
+                            <label for="credit">شنو نوع القرض لي باغي؟ *</label>
+                            <select id="credit" name="credit" required>
+                                <option value="" disabled selected>اختار نوع القرض...</option>
+                                <option value="قرض عقاري">قرض عقاري (شراء، بناء، أرض)</option>
+                                <option value="قرض استهلاكي">قرض استهلاكي (سيارة، أشغال، شخصي)</option>
+                                <option value="قرض سيارة">قرض سيارة</option>
+                                <option value="قرض مهني">قرض مهني (ليزينغ، سيولة، تجهيز)</option>
+                            </select>
+                            <span class="error-text" id="creditError">هاد الحقل ضروري</span>
+                        </div>
+                    </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label for="montant">المبلغ التقريبي المطلوب (بالدرهم) *</label>
+                            <input type="number" id="montant" name="montant" placeholder="500000" required>
+                            <p class="helper-text">تقدير كافي — ماشي ضروري يكون دقيق</p>
+                            <span class="error-text" id="montantError">هاد الحقل ضروري</span>
+                        </div>
+                    </div>
+                    <button type="submit" class="submit-btn" id="submitBtn">← حلل ملفي مجانًا</button>
+                </form>
+                <div class="form-footer">
+                    <p>🔒 معلوماتك سرية تمامًا. ما كنشاركوها مع حتى جهة.</p>
+                    <p class="smaller">الاثنين – السبت • <span class="num">9h</span> – <span class="num">20h</span> •
+                        جواب مضمون في أقل من ساعتين</p>
+                </div>
+            </div>
+
+            <div class="success-block" id="successBlock">
+                <div class="success-icon">✅</div>
+                <h2 class="success-title">تم استلام طلبك.</h2>
+                <p class="success-text">غادي يدرس ملفك شخصيًا خبير من <strong>Crédit Insider Maroc</strong>.</p>
+                <p class="success-text">غادي توصل رسالة واتساب في أقل من <strong>ساعتين</strong> على الرقم لي دخلتي.</p>
+                <p class="success-text" style="margin-top:16px">إلا بغيتي تتواصل معانا مباشرة:</p>
+                <a href="https://wa.me/212600000000?text=السلام عليكم، عمرت الفورمولير وبغيت نبدا تحليل الملف ديالي."
+                    class="whatsapp-btn" target="_blank" rel="noopener">📱 راسلنا على واتساب دابا ←</a>
+            </div>
+        </section>
+
+        <!-- BLOCK 4 — SOCIAL PROOF -->
+        <section class="social-proof">
+            <p class="social-proof-label">حصلو على تمويلهم</p>
+            <div class="proof-grid">
+                <div class="proof-card">
+                    <span class="proof-name">كريم م.</span>
+                    <span class="proof-city">الدار البيضاء</span>
+                    <span class="proof-type">قرض عقاري مفتوح</span>
+                    <span class="proof-amount">850,000 Dhs</span>
+                    <p class="proof-quote">"رفضوني جوج مرات فالبنك ديالي. الملف تقبل في <span class="num">3</span>
+                        أسابيع."</p>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-name">نادية ب.</span>
+                    <span class="proof-city">مراكش</span>
+                    <span class="proof-type">قرض مهني مفتوح</span>
+                    <span class="proof-amount">300,000 Dhs</span>
+                    <p class="proof-quote">"كنت كنظن الدخل ديالي ما كافيش. الموافقة جات فوري."</p>
+                </div>
+                <div class="proof-card">
+                    <span class="proof-name">حسن أ.</span>
+                    <span class="proof-city">مغربي مقيم بفرنسا</span>
+                    <span class="proof-type">قرض عقاري بالمغرب</span>
+                    <span class="proof-amount">1,200,000 Dhs</span>
+                    <p class="proof-quote">"عمرني مشيت للمغرب. كولشي تدار عن بعد <span class="num">100%</span>."</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- STICKY MOBILE CTA -->
+    <div class="sticky-cta" id="stickyCta">
+        <button onclick="document.getElementById('formulaire').scrollIntoView({behavior:'smooth'})">← حلل ملفي
+            مجانًا</button>
+    </div>
+
+    <script>
+        (function () {
+            // Sticky CTA visibility
+            const stickyCta = document.getElementById('stickyCta');
+            const formSection = document.getElementById('formulaire');
+            if (stickyCta && formSection) {
+                const obs = new IntersectionObserver(entries => {
+                    entries.forEach(e => stickyCta.style.display = e.isIntersecting ? 'none' : 'block');
+                }, { threshold: 0.1 });
+                obs.observe(formSection);
+            }
+
+            const form = document.getElementById('leadForm'), formCard = document.getElementById('formCard'),
+                successBlock = document.getElementById('successBlock'), submitBtn = document.getElementById('submitBtn');
+            const fields = [
+                { id: 'prenom', errorId: 'prenomError', type: 'text' },
+                { id: 'nom', errorId: 'nomError', type: 'text' },
+                { id: 'telephone', errorId: 'telephoneError', type: 'phone' },
+                { id: 'age', errorId: 'ageError', type: 'age' },
+                { id: 'situation', errorId: 'situationError', type: 'select' },
+                { id: 'credit', errorId: 'creditError', type: 'select' },
+                { id: 'montant', errorId: 'montantError', type: 'text' }
+            ];
+            fields.forEach(f => {
+                const el = document.getElementById(f.id);
+                const h = () => { el.classList.remove('error'); document.getElementById(f.errorId).classList.remove('visible') };
+                el.addEventListener('input', h); el.addEventListener('change', h);
+            });
+
+            form.addEventListener('submit', function (e) {
+                e.preventDefault(); let valid = true;
+                fields.forEach(f => {
+                    const el = document.getElementById(f.id), err = document.getElementById(f.errorId), val = el.value.trim();
+                    el.classList.remove('error'); err.classList.remove('visible'); err.textContent = 'هاد الحقل ضروري';
+                    if (!val) { el.classList.add('error'); err.classList.add('visible'); valid = false; return }
+                    if (f.type === 'phone') { const d = val.replace(/\D/g, ''); if (d.length < 8) { el.classList.add('error'); err.textContent = 'دخل رقم هاتف صحيح'; err.classList.add('visible'); valid = false } }
+                    if (f.type === 'age') { const a = parseInt(val, 10); if (isNaN(a) || a < 18 || a > 75) { el.classList.add('error'); err.textContent = 'كنرافقو الأشخاص بين 18 و 75 عام'; err.classList.add('visible'); valid = false } }
+                });
+                if (!valid) return;
+
+                submitBtn.classList.add('loading');
+                submitBtn.textContent = 'جاري الإرسال...';
+
+                // Send email via Web3Forms
+                const data = {
+                    access_key: '8d2b0e5f-492b-40f8-a09b-e7c358d37273',
+                    subject: 'طلب جديد — Crédit Insider (AR)',
+                    from_name: 'Crédit Insider Maroc',
+                    to: 'monissisme12@gmail.com',
+                    prenom: document.getElementById('prenom').value.trim(),
+                    nom: document.getElementById('nom').value.trim(),
+                    telephone: document.getElementById('telephone').value.trim(),
+                    age: document.getElementById('age').value.trim(),
+                    situation: document.getElementById('situation').value,
+                    type_credit: document.getElementById('credit').value,
+                    montant: document.getElementById('montant').value.trim() + ' Dhs',
+                    page: 'النسخة العربية'
+                };
+
+                fetch('https://api.web3forms.com/submit', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(data)
+                })
+                    .then(r => r.json())
+                    .then(res => {
+                        formCard.style.display = 'none';
+                        successBlock.classList.add('visible');
+                        if (stickyCta) stickyCta.style.display = 'none';
+                        window.scrollTo({ top: successBlock.offsetTop - 40, behavior: 'smooth' });
+                    })
+                    .catch(() => {
+                        formCard.style.display = 'none';
+                        successBlock.classList.add('visible');
+                        if (stickyCta) stickyCta.style.display = 'none';
+                        window.scrollTo({ top: successBlock.offsetTop - 40, behavior: 'smooth' });
+                    });
+            });
+        })();
+    </script>
+</body>
+
+</html>
