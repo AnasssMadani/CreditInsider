@@ -12,7 +12,129 @@
   <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
     rel="stylesheet">
   <link rel="stylesheet" href="style.css">
-  <script async src="https://tally.so/widgets/embed.js"></script>
+  <style>
+    /* Language Modal */
+    .lang-modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, .7);
+      backdrop-filter: blur(6px);
+      z-index: 9999;
+      display: none;
+      align-items: center;
+      justify-content: center;
+      padding: 16px
+    }
+
+    .lang-modal-overlay.active {
+      display: flex
+    }
+
+    .lang-modal {
+      background: #12121a;
+      border: 1px solid #1e1e2e;
+      border-radius: 20px;
+      padding: 48px 40px;
+      max-width: 420px;
+      width: 100%;
+      text-align: center;
+      position: relative
+    }
+
+    .lang-modal-close {
+      position: absolute;
+      top: 16px;
+      right: 20px;
+      background: none;
+      border: none;
+      color: #9ca3af;
+      font-size: 24px;
+      cursor: pointer;
+      line-height: 1;
+      transition: color .2s
+    }
+
+    .lang-modal-close:hover {
+      color: #fff
+    }
+
+    .lang-modal h3 {
+      font-size: 20px;
+      font-weight: 700;
+      color: #fff;
+      margin-bottom: 8px
+    }
+
+    .lang-modal p {
+      font-size: 14px;
+      color: #9ca3af;
+      margin-bottom: 32px
+    }
+
+    .lang-buttons {
+      display: flex;
+      gap: 16px
+    }
+
+    .lang-btn {
+      flex: 1;
+      padding: 20px 16px;
+      border-radius: 14px;
+      border: 1px solid #1e1e2e;
+      background: #0a0a0f;
+      cursor: pointer;
+      transition: all .2s;
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px
+    }
+
+    .lang-btn:hover {
+      border-color: #c9a84c;
+      background: rgba(201, 168, 76, .06);
+      transform: translateY(-2px)
+    }
+
+    .lang-btn .lang-flag {
+      font-size: 36px
+    }
+
+    .lang-btn .lang-name {
+      font-size: 15px;
+      font-weight: 600;
+      color: #fff
+    }
+
+    .lang-btn .lang-sub {
+      font-size: 12px;
+      color: #9ca3af
+    }
+
+    /* Navbar lang toggle */
+    .nav-lang-btn {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      background: rgba(201, 168, 76, .1);
+      border: 1px solid rgba(201, 168, 76, .25);
+      color: #c9a84c;
+      font-size: 13px;
+      font-weight: 600;
+      padding: 6px 14px;
+      border-radius: 8px;
+      cursor: pointer;
+      font-family: 'Outfit', sans-serif;
+      transition: all .2s;
+      margin-left: 8px
+    }
+
+    .nav-lang-btn:hover {
+      background: rgba(201, 168, 76, .2);
+      border-color: #c9a84c
+    }
+  </style>
 </head>
 
 <body>
@@ -28,8 +150,8 @@
         <a href="#temoignages">Témoignages</a>
         <a href="#faq">FAQ</a>
       </nav>
-      <a href="#analyse" class="btn btn-primary btn-sm cta-sticky" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-        data-tally-emoji-animation="wave">Analyser Mon Dossier &rarr;</a>
+      <a href="#" class="btn btn-primary btn-sm cta-sticky cta-lang">Analyser Mon Dossier &rarr;</a>
+      <button class="nav-lang-btn cta-lang" type="button">🌐 FR / عربي</button>
       <button class="mobile-menu-btn" id="mobile-menu-btn" aria-label="Menu">
         <span></span><span></span><span></span>
       </button>
@@ -50,9 +172,8 @@
         risque pour vous.</p>
 
       <div class="hero-cta-wrapper reveal" style="transition-delay: 0.4s">
-        <button class="btn btn-large btn-gold" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-          data-tally-emoji-animation="wave">
-          � Démarrer Mon Analyse Gratuite &rarr;
+        <button class="btn btn-large btn-gold cta-lang">
+          📝 Démarrer Mon Analyse Gratuite &rarr;
         </button>
         <p class="cta-subtext">Réponse en moins de 2h &bull; Aucun engagement &bull; 0 Dhs à payer aujourd'hui</p>
       </div>
@@ -226,8 +347,7 @@
         <span>Payable uniquement au déblocage — 0 Dhs à l'avance</span>
       </div>
 
-      <button class="btn btn-secondary mt-4" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-        data-tally-emoji-animation="wave">Je Veux Tester Sans Risque &rarr;</button>
+      <button class="btn btn-secondary mt-4 cta-lang">Je Veux Tester Sans Risque &rarr;</button>
     </div>
   </section>
 
@@ -248,29 +368,25 @@
             <p><strong>Acquisition résidence principale, résidence secondaire, investissement locatif.</strong> Nous
               évaluons votre capacité de remboursement et identifions la banque offrant les meilleures conditions pour
               votre profil.</p>
-            <button class="btn btn-sm btn-gold mt-4" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-              data-tally-emoji-animation="wave">Analyser mon profil pour un
+            <button class="btn btn-sm btn-gold mt-4 cta-lang">Analyser mon profil pour un
               crédit immo &rarr;</button>
           </div>
           <div class="tab-content" id="tab-conso">
             <p><strong>Véhicule, travaux, personnel.</strong> Montants de 20 000 à 500 000 Dhs. Nous optimisons votre
               dossier pour obtenir le meilleur taux et le montant maximal selon votre situation.</p>
-            <button class="btn btn-sm btn-gold mt-4" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-              data-tally-emoji-animation="wave">Analyser mon profil pour un
+            <button class="btn btn-sm btn-gold mt-4 cta-lang">Analyser mon profil pour un
               crédit conso &rarr;</button>
           </div>
           <div class="tab-content" id="tab-pro">
             <p><strong>Équipement, trésorerie, investissement, fonds de commerce.</strong> TPE, PME, auto-entrepreneurs.
               Nous connaissons les critères spécifiques aux profils professionnels.</p>
-            <button class="btn btn-sm btn-gold mt-4" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-              data-tally-emoji-animation="wave">Analyser mon profil pour un
+            <button class="btn btn-sm btn-gold mt-4 cta-lang">Analyser mon profil pour un
               crédit pro &rarr;</button>
           </div>
           <div class="tab-content" id="tab-mre">
             <p><strong>Immobilier au Maroc depuis l'étranger.</strong> Tout est géré à distance. Vous n'avez pas besoin
               de vous déplacer au Maroc pour obtenir votre financement.</p>
-            <button class="btn btn-sm btn-gold mt-4" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-              data-tally-emoji-animation="wave">Analyser
+            <button class="btn btn-sm btn-gold mt-4 cta-lang">Analyser
               mon profil MRE &rarr;</button>
           </div>
         </div>
@@ -404,8 +520,7 @@
         nous vous le disons sous 24h. Si ce n'est pas le cas, nous vous le disons aussi — honnêtement et sans vous avoir
         coûté un centime.</p>
 
-      <button class="btn btn-large btn-gold mt-4" data-tally-open="RG4K44" data-tally-emoji-text="👋"
-        data-tally-emoji-animation="wave">Démarrer Mon Analyse Gratuite
+      <button class="btn btn-large btn-gold mt-4 cta-lang">Démarrer Mon Analyse Gratuite
         &rarr;</button>
       <p class="final-subtext mt-2">Lundi–Samedi • 9h–20h • Réponse sous 2h</p>
     </div>
@@ -422,7 +537,7 @@
         <div class="footer-links">
           <a href="#">Mentions légales</a>
           <a href="#">Politique de confidentialité</a>
-          <a href="#" data-tally-open="RG4K44" data-tally-emoji-text="👋" data-tally-emoji-animation="wave">Contact</a>
+          <a href="#" class="cta-lang">Contact</a>
         </div>
         <div class="footer-contact">
           <a href="https://wa.me/212600000000?text=Bonjour!" class="footer-wa-btn" target="_blank">
@@ -454,9 +569,50 @@
     </svg>
   </a>
 
-
+  <!-- Language Selector Modal -->
+  <div class="lang-modal-overlay" id="langModal">
+    <div class="lang-modal">
+      <button class="lang-modal-close" id="langModalClose">&times;</button>
+      <h3>Choisissez votre langue</h3>
+      <p>اختار اللغة ديالك</p>
+      <div class="lang-buttons">
+        <a href="/fr" class="lang-btn">
+          <span class="lang-flag">🇫🇷</span>
+          <span class="lang-name">Français</span>
+          <span class="lang-sub">Continuer en français</span>
+        </a>
+        <a href="/ar" class="lang-btn">
+          <span class="lang-flag">🇲🇦</span>
+          <span class="lang-name">العربية</span>
+          <span class="lang-sub">كمّل بالعربية</span>
+        </a>
+      </div>
+    </div>
+  </div>
 
   <script src="script.js"></script>
+  <script>
+    (function () {
+      const modal = document.getElementById('langModal');
+      const closeBtn = document.getElementById('langModalClose');
+      // All CTA buttons/links open the language modal
+      document.querySelectorAll('.cta-lang').forEach(el => {
+        el.addEventListener('click', function (e) {
+          e.preventDefault();
+          e.stopPropagation();
+          modal.classList.add('active');
+        });
+      });
+      // Close modal
+      closeBtn.addEventListener('click', () => modal.classList.remove('active'));
+      modal.addEventListener('click', function (e) {
+        if (e.target === modal) modal.classList.remove('active');
+      });
+      document.addEventListener('keydown', function (e) {
+        if (e.key === 'Escape') modal.classList.remove('active');
+      });
+    })();
+  </script>
 </body>
 
 </html>
