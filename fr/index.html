@@ -779,6 +779,12 @@
                 submitBtn.classList.add('loading');
                 submitBtn.textContent = 'Envoi en cours...';
 
+                // Meta Pixel: track form submission immediately on valid submit
+                if(typeof fbq==='function') {
+                    fbq('track', 'Lead', {content_name: 'FR Form', currency: 'MAD', value: document.getElementById('montant').value});
+                    fbq('track', 'SubmitApplication');
+                }
+
                 // Send email via Web3Forms
                 const data = {
                     access_key: '8d2b0e5f-492b-40f8-a09b-e7c358d37273',
@@ -802,11 +808,6 @@
                 })
                     .then(r => r.json())
                     .then(res => {
-                        // Meta Pixel: track form submission
-                        if(typeof fbq==='function') {
-                            fbq('track', 'Lead', {content_name: 'FR Form', currency: 'MAD', value: document.getElementById('montant').value});
-                            fbq('track', 'SubmitApplication');
-                        }
                         formCard.style.display = 'none';
                         successBlock.classList.add('visible');
                         if (stickyCta) stickyCta.style.display = 'none';
