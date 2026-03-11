@@ -11,6 +11,23 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800&display=swap"
         rel="stylesheet">
+    <!-- Meta Pixel Code -->
+    <script>
+    !function(f,b,e,v,n,t,s)
+    {if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+    n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+    if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+    n.queue=[];t=b.createElement(e);t.async=!0;
+    t.src=v;s=b.getElementsByTagName(e)[0];
+    s.parentNode.insertBefore(t,s)}(window, document,'script',
+    'https://connect.facebook.net/en_US/fbevents.js');
+    fbq('init', '1224836586466703');
+    fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+    src="https://www.facebook.com/tr?id=1224836586466703&ev=PageView&noscript=1"
+    /></noscript>
+    <!-- End Meta Pixel Code -->
     <style>
         *,
         *::before,
@@ -614,7 +631,7 @@
                     </div>
                     <div class="form-row">
                         <div class="form-group">
-                            <label for="telephone">Téléphone WhatsApp *</label>
+                            <label for="telephone">Téléphone *</label>
                             <input type="tel" id="telephone" name="telephone" placeholder="Ex : 06 12 34 56 78"
                                 required>
                             <p class="helper-text">Nous vous contactons uniquement sur ce numéro</p>
@@ -676,11 +693,8 @@
                 <h2 class="success-title">Demande reçue.</h2>
                 <p class="success-text">Votre dossier va être étudié personnellement par un expert<br><strong>Crédit
                         Insider Maroc</strong>.</p>
-                <p class="success-text">Vous recevrez un message WhatsApp dans les <strong>2 heures</strong> qui
+                <p class="success-text">Vous serez contacté dans les <strong>2 heures</strong> qui
                     suivent<br>sur le numéro que vous avez indiqué.</p>
-                <p class="success-text" style="margin-top:16px">Si vous souhaitez nous contacter directement :</p>
-                <a href="https://wa.me/212600000000?text=Bonjour, j'ai rempli le formulaire et je voudrais démarrer mon analyse de dossier."
-                    class="whatsapp-btn" target="_blank" rel="noopener">📱 Écrire sur WhatsApp maintenant →</a>
             </div>
         </section>
 
@@ -788,6 +802,11 @@
                 })
                     .then(r => r.json())
                     .then(res => {
+                        // Meta Pixel: track form submission
+                        if(typeof fbq==='function') {
+                            fbq('track', 'Lead', {content_name: 'FR Form', currency: 'MAD', value: document.getElementById('montant').value});
+                            fbq('track', 'SubmitApplication');
+                        }
                         formCard.style.display = 'none';
                         successBlock.classList.add('visible');
                         if (stickyCta) stickyCta.style.display = 'none';
