@@ -707,6 +707,14 @@
                             <span class="error-text" id="ageError">هاد الحقل ضروري</span>
                         </div>
                     </div>
+                    <div class="form-row full">
+                        <div class="form-group">
+                            <label for="revenu">الدخل / الراتب الشهري (بالدرهم) *</label>
+                            <input type="number" id="revenu" name="revenu" placeholder="8000" required>
+                            <p class="helper-text">الراتب الصافي الشهري أو متوسط الدخل</p>
+                            <span class="error-text" id="revenuError">هاد الحقل ضروري</span>
+                        </div>
+                    </div>
                     <div class="form-row">
                         <div class="form-group">
                             <label for="situation">الوضعية المهنية *</label>
@@ -813,6 +821,7 @@
                 { id: 'nom', errorId: 'nomError', type: 'text' },
                 { id: 'telephone', errorId: 'telephoneError', type: 'phone' },
                 { id: 'age', errorId: 'ageError', type: 'age' },
+                { id: 'revenu', errorId: 'revenuError', type: 'text' },
                 { id: 'situation', errorId: 'situationError', type: 'select' },
                 { id: 'credit', errorId: 'creditError', type: 'select' },
                 { id: 'montant', errorId: 'montantError', type: 'text' }
@@ -853,6 +862,7 @@
                     nom: document.getElementById('nom').value.trim(),
                     telephone: document.getElementById('telephone').value.trim(),
                     age: document.getElementById('age').value.trim(),
+                    revenu_salaire: document.getElementById('revenu').value.trim() + ' Dhs/mois',
                     situation: document.getElementById('situation').value,
                     type_credit: document.getElementById('credit').value,
                     montant: document.getElementById('montant').value.trim() + ' Dhs',
